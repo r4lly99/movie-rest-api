@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
-	"time"
 
 	"github.com/gorilla/mux"
 	. "github.com/r4lly99/movie-rest-api/config"
@@ -15,67 +14,6 @@ import (
 
 var config = Config{}
 var dao = MoviesDAO{}
-
-type Person struct {
-	Results []struct {
-		Gender string `json:"gender"`
-		Name   struct {
-			Title string `json:"title"`
-			First string `json:"first"`
-			Last  string `json:"last"`
-		} `json:"name"`
-		Location struct {
-			Street      string `json:"street"`
-			City        string `json:"city"`
-			State       string `json:"state"`
-			Postcode    int    `json:"postcode"`
-			Coordinates struct {
-				Latitude  string `json:"latitude"`
-				Longitude string `json:"longitude"`
-			} `json:"coordinates"`
-			Timezone struct {
-				Offset      string `json:"offset"`
-				Description string `json:"description"`
-			} `json:"timezone"`
-		} `json:"location"`
-		Email string `json:"email"`
-		Login struct {
-			UUID     string `json:"uuid"`
-			Username string `json:"username"`
-			Password string `json:"password"`
-			Salt     string `json:"salt"`
-			Md5      string `json:"md5"`
-			Sha1     string `json:"sha1"`
-			Sha256   string `json:"sha256"`
-		} `json:"login"`
-		Dob struct {
-			Date time.Time `json:"date"`
-			Age  int       `json:"age"`
-		} `json:"dob"`
-		Registered struct {
-			Date time.Time `json:"date"`
-			Age  int       `json:"age"`
-		} `json:"registered"`
-		Phone string `json:"phone"`
-		Cell  string `json:"cell"`
-		ID    struct {
-			Name  string `json:"name"`
-			Value string `json:"value"`
-		} `json:"id"`
-		Picture struct {
-			Large     string `json:"large"`
-			Medium    string `json:"medium"`
-			Thumbnail string `json:"thumbnail"`
-		} `json:"picture"`
-		Nat string `json:"nat"`
-	} `json:"results"`
-	Info struct {
-		Seed    string `json:"seed"`
-		Results int    `json:"results"`
-		Page    int    `json:"page"`
-		Version string `json:"version"`
-	} `json:"info"`
-}
 
 // GET list of movies
 func AllMoviesEndPoint(w http.ResponseWriter, r *http.Request) {
