@@ -5,10 +5,11 @@ import (
 	"log"
 	"net/http"
 
+	. "movie-rest-api/config"
+	. "movie-rest-api/dao"
+	. "movie-rest-api/models"
+
 	"github.com/gorilla/mux"
-	. "github.com/r4lly99/movie-rest-api/config"
-	. "github.com/r4lly99/movie-rest-api/dao"
-	. "github.com/r4lly99/movie-rest-api/models"
 	"gopkg.in/mgo.v2/bson"
 )
 
